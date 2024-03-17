@@ -1,0 +1,18 @@
+include *.txt
+include *.md
+include *.pkl
+recursive-include ./empattri_model *
+
+include empattri_model/datasets/wa_fn_usec_hr_employee_attrition_tsv.csv
+include empattri_model/datasets/test.csv
+include empattri_model/trained_models/*.pkl
+include empattri_model/VERSION
+include empattri_model/config.yml
+
+include ./requirements/requirements.txt
+include ./requirements/test_requirements.txt
+exclude *.log
+exclude *.cfg
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]

@@ -1,0 +1,109 @@
+# Package Overview
+package_name: empattri_model
+
+# Data Files
+training_data_file: wa_fn_usec_hr_employee_attrition_tsv.csv
+
+# Variables
+# The variable we are attempting to predict (cnt)
+target: attrition
+
+pipeline_name: Employeeattrition_pipe
+pipeline_save_file: empattri__model_output_v
+
+# Features that will go inside processing pipeline
+features:
+ - age      
+ - businesstravel            
+ - dailyrate                 
+ - department                
+ - distancefromhome          
+ - education                 
+ - educationfield            
+ - environmentsatisfaction   
+ - gender                    
+ - hourlyrate                
+ - jobinvolvement            
+ - joblevel                  
+ - jobrole                   
+ - jobsatisfaction           
+ - maritalstatus             
+ - monthlyincome             
+ - monthlyrate               
+ - numcompaniesworked        
+ - overtime                  
+ - percentsalaryhike         
+ - performancerating         
+ - relationshipsatisfaction  
+ - standardhours             
+ - stockoptionlevel          
+ - totalworkingyears         
+ - trainingtimeslastyear     
+ - worklifebalance           
+ - yearsatcompany            
+ - yearsincurrentrole        
+ - yearssincelastpromotion   
+ - yearswithcurrmanager       
+              # generated from dteday colum <--Before pipeline alongwith loading the data
+              # generated from dteday colum <--Before pipeline alongwith loading the data
+
+
+unused_fields:  # Features to drop before pipeline
+  - employeenumber
+  - employeecount
+  - over18
+
+
+# Features names
+
+age_var: age          
+businesstravel_var: businesstravel            
+dailyrate_var: dailyrate                 
+department_var: department                
+distancefromhome_var: distancefromhome          
+education_var: education                 
+educationfield_var: educationfield            
+environmentsatisfaction_var: environmentsatisfaction   
+gender_var: gender                    
+hourlyrate_var: hourlyrate                
+jobinvolvement_var: jobinvolvement           
+joblevel_var: joblevel                  
+jobrole_var: jobrole                   
+jobsatisfaction_var: jobsatisfaction           
+maritalstatus_var: maritalstatus             
+monthlyincome_var: monthlyincome             
+monthlyrate_var: monthlyrate               
+numcompaniesworked_var: numcompaniesworked        
+overtime_var: overtime                  
+percentsalaryhike_var: percentsalaryhike         
+performancerating_var: performancerating         
+relationshipsatisfaction_var: relationshipsatisfaction  
+standardhours_var: standardhours             
+stockoptionlevel_var: stockoptionlevel          
+totalworkingyears_var: totalworkingyears         
+trainingtimeslastyear_var: trainingtimeslastyear     
+worklifebalance_var: worklifebalance           
+yearsatcompany_var: yearsatcompany            
+yearsincurrentrole_var: yearsincurrentrole        
+yearssincelastpromotion_var: yearssincelastpromotion   
+yearswithcurrmanager_var: yearswithcurrmanager
+
+
+# Mappings for Ordinal categorical features
+
+attr_mappings:
+  Yes: 1
+  No: 0
+  
+# Set train/test split
+test_size: 0.05
+
+# Set the random seed
+random_state: 123
+
+# Alogrithm parameters
+learning_rate : 1
+depth : 1
+scale_pos_weight : 6
+leaf_reg : 8
+border_count : 65 
