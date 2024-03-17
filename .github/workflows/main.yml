@@ -1,0 +1,36 @@
+name: Python app
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10"]
+    steps:
+    - name: Checkout step to clone repo
+      uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        pip install -r Application_with_Tests_and_Packaging/requirements/test_requirements.txt
+    - name: Train pipeline
+      run: |
+        python Application_with_Tests_and_Packaging/empattri_model/train_pipeline.py
+    # - name: Test with pytest
+    #   run: |
+    #     pytest
+    - name: Format code with Black
+      run: |
+        black Application_with_Tests_and_Packaging/empattri_model/*.py
+    - name: Lint with pylint
+      run: |
+        pylint --disable=R,C Application_with_Tests_and_Packaging/empattri_model/{pipeline,train_pipeline,predict}.py
